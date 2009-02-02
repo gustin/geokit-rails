@@ -6,10 +6,13 @@ if defined? Geokit
   require 'geokit-rails/defaults'
   require 'geokit-rails/acts_as_mappable'
   require 'geokit-rails/ip_geocode_lookup'
-  
+
   # Automatically mix in distance finder support into ActiveRecord classes.
   ActiveRecord::Base.send :include, GeoKit::ActsAsMappable
 
   # Automatically mix in ip geocoding helpers into ActionController classes.
   ActionController::Base.send :include, GeoKit::IpGeocodeLookup
+else
+  puts "GEOKIT: geokit-rails is dependent on andre-geokit, please 'gem install andre-geokit.'"
+  config.gem 'andre-geokit', :lib => 'geokit'
 end
