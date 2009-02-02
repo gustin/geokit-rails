@@ -13,6 +13,6 @@ if defined? Geokit
   # Automatically mix in ip geocoding helpers into ActionController classes.
   ActionController::Base.send :include, GeoKit::IpGeocodeLookup
 else
-  puts "GEOKIT: geokit-rails is dependent on andre-geokit, please 'gem install andre-geokit.'"
+  puts "GEOKIT: geokit-rails is dependent on andre-geokit, please 'rake gems:install.'"
   config.gem 'andre-geokit', :lib => 'geokit'
 end
